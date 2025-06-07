@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-box {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+#cityInput {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px 0 0 8px;
+}
+
+#searchBtn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
+
+#searchBtn:hover {
+  background-color: #023e8a;
+}
+
+.weather-box img {
+  width: 80px;
+  height: 80px;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-message {
+  color: red;
+  margin-top: 1rem;
+}

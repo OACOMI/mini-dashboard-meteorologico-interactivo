@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Dashboard Meteorológico</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Clima por Ciudad</h1>
+    <div class="search-box">
+      <input type="text" id="cityInput" placeholder="Ej. Puebla, México" />
+      <button id="searchBtn">Buscar</button>
+    </div>
+    <div id="weatherResult" class="weather-box hidden">
+      <h2 id="cityName"></h2>
+      <img id="weatherIcon" alt="Ícono del clima" />
+      <p><strong>Temperatura:</strong> <span id="temperature"></span>°C</p>
+      <p><strong>Clima:</strong> <span id="description"></span></p>
+      <p><strong>Humedad:</strong> <span id="humidity"></span>%</p>
+      <p><strong>Viento:</strong> <span id="windSpeed"></span> m/s</p>
+    </div>
+    <p id="errorMessage" class="error-message hidden"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

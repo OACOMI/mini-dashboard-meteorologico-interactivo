@@ -33,13 +33,13 @@ Aplicación web que permite consultar el clima actual de una ciudad específica,
 
 ## Vista de la interfaz principal
 
-![Interfaz principal](./images/captura1.png)
+![Interfaz principal](./images/captura1.jpg)
 
 ## Resultado de búsqueda del clima
 
-![Clima consultado](./images/captura2.png)
+![Clima consultado](./images/captura2.jpg)
 
-![Clima consultado](./images/captura4.png)
+![Clima consultado](./images/captura4.jpg)
 
 ## Autor
 

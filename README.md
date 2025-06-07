@@ -15,7 +15,7 @@ Aplicación web que permite consultar el clima actual de una ciudad específica,
 ### Opción 1: Usar solo el frontend estático
 
 1. Clona este repositorio o descarga los archivos.
-2. Abre `index.html` en tu navegador.
+2. Abrir `index.html` en tu navegador.
 3. Ingresa una ciudad y haz clic en "Buscar".
 
 ---
@@ -25,9 +25,9 @@ Aplicación web que permite consultar el clima actual de una ciudad específica,
 1. Clona este repositorio.
 2. Abre una terminal en la carpeta del proyecto.
 3. Ejecuta `npm install` para instalar dependencias.
-4. Crea un archivo `.env` en la carpeta `backend` con tu API key de OpenWeatherMap así: API_KEY=tu_api_key_aqui
-5. Ejecuta el backend con: node backend/server.js
-6. Abre `index.html` en tu navegador y la app consumirá el backend para obtener los datos.
+4. Crear un archivo `.env` en la carpeta `backend` con tu API key de OpenWeatherMap: API_KEY = tu_api_key_aqui
+5. Ejecutar el backend con: node backend/server.js
+6. Abrir `index.html` en tu navegador y la app consumirá el backend para obtener los datos.
 
 ## 📸 Captura de pantalla
 
@@ -38,8 +38,6 @@ Aplicación web que permite consultar el clima actual de una ciudad específica,
 ## Resultado de búsqueda del clima
 
 ![Clima consultado](./images/captura2.png)
-
-![Clima consultado](./images/captura3.png)
 
 ![Clima consultado](./images/captura4.png)
 

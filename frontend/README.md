@@ -13,16 +13,20 @@ Aplicación web que permite consultar el clima actual de una ciudad específica,
 
 1. Clona este repositorio o descarga los archivos.
 2. Abrir `index.html` en tu navegador.
-3. Ingresa una ciudad y haz clic en "Buscar Clima".
+3. Ingresa una ciudad y haz clic en "Buscar".
 
-##  Cómo probarlo en vivo
+## Vista de la interfaz principal
 
-Este proyecto también está disponible en GitHub Pages:  
- [https://TU_USUARIO.github.io/mini-dashboard](https://TU_USUARIO.github.io/mini-dashboard)
+![Interfaz principal](./images/captura1.png)
 
-## 📸 Captura de pantalla
+## Resultado de búsqueda del clima
 
-*(Aquí puedes añadir una imagen si quieres)*
+![Clima consultado](./images/captura2.png)
+
+![Clima consultado](./images/captura3.png)
+
+![Clima consultado](./images/captura4.png)
+
 
 ## Autor
 

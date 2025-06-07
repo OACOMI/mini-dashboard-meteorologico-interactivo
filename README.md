@@ -1,4 +1,4 @@
-# Mini Dashboard Meteorológico Interactivo
+# 🌤️ Mini Dashboard Meteorológico Interactivo
 
 Aplicación web que permite consultar el clima actual de una ciudad específica, usando la API de OpenWeatherMap.
 
@@ -10,9 +10,9 @@ Aplicación web que permite consultar el clima actual de una ciudad específica,
 - Node.js (Express)
 - [OpenWeatherMap API](https://openweathermap.org/api)
 
-## ¿Cómo usarlo?
+## 🚀 ¿Cómo usarlo?
 
-### Opción 1: Usar solo el frontend estático
+### 💻 Opción 1: Usar solo el frontend estático
 
 1. Clona este repositorio o descarga los archivos.
 2. Abrir `index.html` en tu navegador.
@@ -20,7 +20,7 @@ Aplicación web que permite consultar el clima actual de una ciudad específica,
 
 ---
 
-### Opción 2: Usar backend con Node.js
+### 🔧 Opción 2: Usar backend con Node.js
 
 1. Clona este repositorio.
 2. Abre una terminal en la carpeta del proyecto.
@@ -44,4 +44,4 @@ Aplicación web que permite consultar el clima actual de una ciudad específica,
 ## Autor
 
 Omar Altamirano Canepa
-Contacto: omaraltamirano245@outlook.com
+📧 Contacto: omaraltamirano245@outlook.com

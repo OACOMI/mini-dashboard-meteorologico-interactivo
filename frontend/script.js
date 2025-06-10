@@ -1,57 +1,103 @@
-// Obtenemos referencias a los elementos HTML por su id para manipularlos
-const searchBtn = document.getElementById('searchBtn');
-const cityInput = document.getElementById('cityInput');
-const cityName = document.getElementById('cityName');
-const temperature = document.getElementById('temperature');
-const description = document.getElementById('description');
-const humidity = document.getElementById('humidity');
-const windSpeed = document.getElementById('windSpeed');
-const weatherIcon = document.getElementById('weatherIcon');
-const weatherResult = document.getElementById('weatherResult');
-const errorMessage = document.getElementById('errorMessage');
+const backendUrl = 'https://mini-dashboard-meteorologico-interactivo-0rzh.onrender.com';
 
-// Agregamos un evento que se activa cuando el usuario hace click en el botón buscar
-searchBtn.addEventListener('click', () => {
-  // Tomamos el valor que escribió el usuario en el input y eliminamos espacios en blanco
-  const city = cityInput.value.trim();
-  // Si no escribió nada, no hacemos nada
-  if (!city) return;
+function getWeather(city = null) {
+  const input = document.getElementById('cityInput');
+  const cityName = city || input.value;
 
-  // Hacemos una petición HTTP GET a nuestro backend (antes localhost, ahora se cambiará)
-  fetch(`https://mini-dashboard-meteorologico-interactivo-0rzh.onrender.com/weather?city=${encodeURIComponent(city)}`)
-    // Aquí se puede cambiar la URL para apuntar a la versión en línea de tu backend
-    //.fetch(`https://mi-backend-ejemplo.herokuapp.com/weather?city=${encodeURIComponent(city)}`)
+  if (!cityName) return alert('Por favor ingresa una ciudad.');
 
-    // Cuando responde la petición
-    .then(response => {
-      // Si la respuesta no es correcta, lanzamos error
-      if (!response.ok) {
-        throw new Error('Ciudad no encontrada o error en la consulta.');
-      }
-      // Si todo bien, extraemos el JSON con los datos
-      return response.json();
-    })
-    // Cuando tenemos los datos
+  fetch(`${backendUrl}/weather?city=${cityName}`)
+    .then(res => res.json())
     .then(data => {
-      // Actualizamos los elementos de la página con la info recibida
-      cityName.textContent = data.name + ', ' + data.sys.country;
-      temperature.textContent = Math.round(data.main.temp);
-      description.textContent = data.weather[0].description;
-      humidity.textContent = data.main.humidity;
-      windSpeed.textContent = data.wind.speed;
-      weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-      // Mostramos la sección con el resultado
-      weatherResult.classList.remove('hidden');
-      // Ocultamos cualquier mensaje de error
-      errorMessage.classList.add('hidden');
+      if (data.error) throw new Error(data.error);
+      displayWeather(data);
+      saveFavorite(cityName);
     })
-    // Si ocurre un error
-    .catch(err => {
-      // Ocultamos la sección de resultado
-      weatherResult.classList.add('hidden');
-      // Mostramos el mensaje de error
-      errorMessage.textContent = err.message;
-      errorMessage.classList.remove('hidden');
+    .catch(err => alert('Error al obtener datos del clima: ' + err.message));
+}
+
+function displayWeather(data) {
+  const container = document.getElementById('weatherResult');
+  const html = `
+    <h3>${data.name}, ${data.sys.country}</h3>
+    <p>🌡️ Temp: ${data.main.temp}°C</p>
+    <p>💧 Humedad: ${data.main.humidity}%</p>
+    <p>🌬️ Viento: ${data.wind.speed} m/s</p>
+    <p>📅 Pronóstico: ${data.weather[0].description}</p>
+  `;
+  container.innerHTML = html;
+}
+
+function saveFavorite(city) {
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  if (!favorites.includes(city)) {
+    favorites.push(city);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    renderFavorites();
+  }
+}
+
+function renderFavorites() {
+  const list = document.getElementById('favorites');
+  list.innerHTML = '';
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  favorites.forEach(city => {
+    const li = document.createElement('li');
+    li.innerHTML = `<button onclick="getWeather('${city}')">${city}</button>`;
+    list.appendChild(li);
+  });
+}
+
+function getLocationWeather() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(pos => {
+      const { latitude, longitude } = pos.coords;
+      fetch(`${backendUrl}/weather/geo?lat=${latitude}&lon=${longitude}`)
+        .then(res => res.json())
+        .then(data => displayWeather(data))
+        .catch(err => alert('No se pudo obtener tu ubicación.'));
     });
+  } else {
+    alert('Tu navegador no soporta geolocalización.');
+  }
+}
+
+window.onload = renderFavorites;
+
+// backend/server.js
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const fetch = require('node-fetch');
+const app = express();
+
+app.use(cors());
+
+const API_KEY = process.env.API_KEY;
+
+app.get('/weather', async (req, res) => {
+  const { city } = req.query;
+  try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=es`);
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    res.json({ error: 'No se pudo obtener el clima' });
+  }
 });
+
+app.get('/weather/geo', async (req, res) => {
+  const { lat, lon } = req.query;
+  try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=es`);
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    res.json({ error: 'No se pudo obtener el clima por geolocalización' });
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
+
 

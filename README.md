@@ -47,9 +47,11 @@ https://mini-dashboard-meteorologico-intera.vercel.app/
 Durante el desarrollo, se utilizó un asistente de inteligencia artificial (ChatGPT y  GitHub Copilot) para los siguientes fines:
 
 GitHub Copilot fue utilizado para:
+
 ✅ Autocompletar funciones repetitivas en JavaScript y sugerencias de código durante la creación del frontend y backend.
 
 ChatGPT fue empleado para:
+
 ✅ Generación del boilerplate base del frontend.
 
 ✅ Asistencia en la configuración de variables de entorno para proteger la API key.

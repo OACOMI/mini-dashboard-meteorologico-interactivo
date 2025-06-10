@@ -70,6 +70,7 @@ Gracias al asistente de IA, pude acelerar el desarrollo, evitar errores comunes 
 ## Autor
 
 Omar Altamirano Canepa
+
 📧 Contacto: omaraltamirano245@outlook.com
 
 

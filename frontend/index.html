@@ -1,28 +1,37 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Dashboard del Clima</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <h1>🌤️ Clima Actual</h1>
+<html lang="es"> <!-- Indica que el documento está en español -->
 
-    <div class="controls">
-      <input type="text" id="cityInput" placeholder="Ingresa una ciudad">
-      <button onclick="getWeather()">Buscar</button>
-      <button onclick="getLocationWeather()">📍 Mi ubicación</button>
+<head>
+  <meta charset="UTF-8" /> <!-- Codificación de caracteres en UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Para diseño responsivo en móviles -->
+  <title>Mini Dashboard Meteorológico</title> <!-- Título de la pestaña del navegador -->
+  <link rel="stylesheet" href="style.css" /> <!-- Vincula una hoja de estilos externa -->
+</head>
+
+<body>
+  <div class="container"> <!-- Contenedor principal del contenido -->
+    <h1>Clima por Ciudad</h1> <!-- Título principal de la página -->
+
+    <div class="search-box"> <!-- Caja de búsqueda para ingresar la ciudad -->
+      <input type="text" id="cityInput" placeholder="Ej. Puebla, México" />
+      <!-- Campo para introducir el nombre de la ciudad -->
+      <button id="searchBtn">Buscar</button> <!-- Botón para iniciar la búsqueda -->
     </div>
 
-    <div id="weatherResult"></div>
+    <div id="weatherResult" class="weather-box hidden">
+      <!-- Caja de resultados, inicialmente oculta con la clase 'hidden' -->
+      <h2 id="cityName"></h2> <!-- Muestra el nombre de la ciudad consultada -->
+      <img id="weatherIcon" alt="Ícono del clima" /> <!-- Ícono representando el clima actual -->
+      <p><strong>Temperatura:</strong> <span id="temperature"></span>°C</p> <!-- Temperatura -->
+      <p><strong>Clima:</strong> <span id="description"></span></p> <!-- Descripción del clima -->
+      <p><strong>Humedad:</strong> <span id="humidity"></span>%</p> <!-- Porcentaje de humedad -->
+      <p><strong>Viento:</strong> <span id="windSpeed"></span> m/s</p> <!-- Velocidad del viento -->
+    </div>
 
-    <h2>⭐ Ciudades Favoritas</h2>
-    <ul id="favorites"></ul>
+    <p id="errorMessage" class="error-message hidden"></p> <!-- Mensaje de error, también oculto al inicio -->
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js"></script> <!-- Vincula el archivo JavaScript para la funcionalidad -->
 </body>
+
 </html>

@@ -10,16 +10,16 @@ Aplicación web que permite consultar el clima actual de una ciudad específica,
 - Node.js (Express)
 - [OpenWeatherMap API](https://openweathermap.org/api)
 
-## 🚀 ¿Cómo usarlo (de manera local)?
+## 🚀 ¿Cómo ejecutar el proyecto localmente?
 
 ### 🔧 Usar backend con Node.js
 
 1. Clona este repositorio.
 2. Abre una terminal en la carpeta del proyecto.
-3. Ejecuta `npm install` para instalar dependencias.
+3. Ejecuta `npm install` en la carpeta backend para instalar dependencias.
 4. Modifica `.env` en la carpeta `backend` con tu API key de OpenWeatherMap: API_KEY = tu_api_key_aqui
 5. Ejecutar el backend con: node backend/server.js
-6. Abrir `index.html` en tu navegador y la app consumirá el backend para obtener los datos.
+6. Abrir `index.html` del frontend en tu navegador y la app consumirá el backend para obtener los datos.
 7. Ingresa el nombre de una ciudad y presiona "Buscar".
 
 ## 💻 Despliegue en producción

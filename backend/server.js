@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
-// Puerto dinámico para plataformas como Render o Heroku
+// Puerto dinámico para plataformas como Render 
 const PORT = process.env.PORT || 3000;
 
 // Tu API Key almacenada en variables de entorno (.env o configuración en Render)

@@ -18,10 +18,10 @@ searchBtn.addEventListener('click', () => {
   if (!city) return;
 
   // Hacemos una petición HTTP GET a nuestro backend 
+  //Localmente
   fetch(`http://localhost:3000/weather?city=${encodeURIComponent(city)}`)
+  //backend en servidor
   fetch(`https://mini-dashboard-meteorologico-interactivo-0rzh.onrender.com/weather?city=${encodeURIComponent(city)}`)
-    // Aquí se puede cambiar la URL para apuntar a la versión en línea de tu backend
-    //.fetch(`https://mi-backend-ejemplo.herokuapp.com/weather?city=${encodeURIComponent(city)}`)
 
     // Cuando responde la petición
     .then(response => {
